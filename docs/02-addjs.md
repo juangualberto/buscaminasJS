@@ -1,23 +1,4 @@
-# Cómo incluir JavaScript correctamente (módulos)
-
-## Forma moderna de incluir JavaScript
-
-Actualmente, la forma recomendada de trabajar con JavaScript en el navegador es mediante módulos ES (ES Modules). Para ello, en el archivo index.html se utiliza la etiqueta script con el atributo type="module":
-
-```html
-<head>
-  <script type="module" src="js/main.js"></script>
-</head>
-```
-
-Al indicar type="module", el navegador interpreta el archivo como un módulo. Esto implica varias cosas importantes:
-
-* El archivo puede usar las palabras clave import y export.
-* El código se ejecuta en modo estricto automáticamente.
-* El script se carga en diferido (de forma similar a defer), es decir, no bloquea el renderizado de la página y se ejecuta cuando el documento HTML ya ha sido procesado.
-* Cada módulo tiene su propio ámbito, por lo que no contamina el espacio global.
-
-Este será el enfoque que utilizaremos en el proyecto del Buscaminas.
+# Proyecto buscaminasJS
 
 ## Estructura recomendada del proyecto
 

@@ -28,7 +28,6 @@ El navegador:
 2. Construye el DOM  
 3. Ejecuta el código JavaScript  
 
-
 ## Relación entre HTML, CSS y JavaScript
 
 | Tecnología | Función |
