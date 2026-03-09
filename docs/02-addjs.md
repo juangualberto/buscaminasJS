@@ -1,192 +1,148 @@
-# Cómo incluir JavaScript correctamente (módulos)
+## Cómo incluir JavaScript correctamente en nuestro proyecto
 
-## Forma moderna de incluir JavaScript
+En el capítulo anterior hemos visto qué es JavaScript y cómo puede interactuar con una página web. Ahora vamos a dar el siguiente paso: **preparar la estructura real del proyecto que utilizaremos para construir el juego del Buscaminas**.
 
-Actualmente, la forma recomendada de trabajar con JavaScript en el navegador es mediante módulos ES (ES Modules). Para ello, en el archivo index.html se utiliza la etiqueta script con el atributo type="module":
+En este capítulo vamos a crear la base del proyecto y a conectar nuestro primer archivo JavaScript con la página web.
+
+El objetivo es que, al finalizar este apartado, tengamos un proyecto funcionando donde el navegador ya es capaz de ejecutar nuestro código JavaScript.
+
+Este será el punto de partida sobre el que iremos construyendo el juego completo.
+
+## Crear la estructura del proyecto
+
+Antes de empezar a programar es importante organizar bien los archivos. Una buena estructura facilita la lectura del código y hace que el proyecto sea más fácil de mantener.
+
+Vamos a crear una carpeta para nuestro proyecto llamada:
+
+```
+buscaminasJS
+```
+
+Dentro de esta carpeta crearemos la siguiente estructura:
+
+```
+buscaminasJS
+│
+├─ index.html
+│
+├─ css/
+│   └─ estilos.css
+│
+└─ js/
+    ├─ main.js
+    ├─ board.js
+    └─ scores.js
+```
+
+Cada uno de estos archivos tendrá una función concreta dentro del proyecto:
+
+* **index.html** será la página principal de la aplicación.
+* **estilos.css** contendrá el diseño de la interfaz.
+* **main.js** será el punto de entrada del programa.
+* **board.js** contendrá la lógica del tablero del juego.
+* **scores.js** se encargará de gestionar las puntuaciones.
+
+De momento solo vamos a trabajar con `index.html` y `main.js`. Los demás archivos los iremos utilizando más adelante.
+
+## Conectar JavaScript con el documento HTML
+
+Para que el navegador ejecute nuestro código JavaScript debemos incluir un script en el archivo `index.html`.
+
+Abrimos el archivo `index.html` y dentro de la sección `<head>` añadimos la siguiente línea:
 
 ```html
-<head>
-  <script type="module" src="js/main.js"></script>
-</head>
+<script type="module" src="js/main.js"></script>
 ```
 
-Al indicar type="module", el navegador interpreta el archivo como un módulo. Esto implica varias cosas importantes:
+El atributo `type="module"` indica al navegador que el archivo se interpretará como un **módulo de JavaScript**.
 
-* El archivo puede usar las palabras clave import y export.
-* El código se ejecuta en modo estricto automáticamente.
-* El script se carga en diferido (de forma similar a defer), es decir, no bloquea el renderizado de la página y se ejecuta cuando el documento HTML ya ha sido procesado.
-* Cada módulo tiene su propio ámbito, por lo que no contamina el espacio global.
+Esto tiene varias ventajas importantes:
 
-Este será el enfoque que utilizaremos en el proyecto del Buscaminas.
+* Permite dividir el código en varios archivos.
+* Cada archivo tiene su propio ámbito de variables.
+* El navegador carga el script sin bloquear la página.
+* Podemos usar `import` y `export` entre archivos JavaScript.
 
-## Estructura recomendada del proyecto
+En proyectos modernos de JavaScript esta es la forma recomendada de organizar el código.
 
-Una organización básica y profesional del proyecto podría ser:
+## Crear el archivo main.js
 
-```bash
-/index.html
-/js/main.js
-/js/tablero.js
-/js/minas.js
-/js/ui.js
-/css/styles.css
+Ahora vamos a crear el archivo principal de JavaScript.
+
+Dentro de la carpeta `js` creamos un archivo llamado:
+
+```
+main.js
 ```
 
-En esta estructura:
+Este archivo será el **punto de entrada del programa**, es decir, el primer código JavaScript que se ejecutará cuando se cargue la página.
 
-* *main.js* actúa como punto de entrada de la aplicación.
-* Los demás archivos contienen partes específicas de la lógica (tablero, generación de minas, interfaz, etc.).
-* El HTML solo enlaza con main.js.
-* main.js se encarga de importar lo necesario.
+De momento añadiremos un pequeño mensaje para comprobar que todo funciona correctamente.
 
-## Exportar desde un módulo
+```javascript
+console.log("Buscaminas iniciado");
+```
 
-Para que una función o variable pueda ser utilizada en otro archivo, debe exportarse.
+## Comprobar que el script se ejecuta
 
-Por ejemplo, en tablero.js:
+Guardamos los archivos y abrimos `index.html` en el navegador.
 
-```js
-export function crearTablero(filas, columnas) {
-console.log("Creando tablero:", filas, columnas);
+Para ver el resultado debemos abrir la **consola del navegador**.
+
+En la mayoría de navegadores se puede abrir con la tecla:
+
+```
+F12
+```
+
+Después seleccionamos la pestaña **Console**.
+
+Si todo está configurado correctamente veremos el mensaje:
+
+```
+Buscaminas iniciado
+```
+
+Esto significa que:
+
+* el navegador ha cargado el archivo `main.js`
+* el script se ha ejecutado correctamente
+* el proyecto está listo para empezar a programarse
+
+## Crear una función de inicio de la aplicación
+
+En proyectos reales es habitual que el programa comience dentro de una función que inicializa la aplicación.
+
+Vamos a modificar ligeramente el contenido de `main.js`:
+
+```javascript
+function iniciarAplicacion() {
+  console.log("Aplicación Buscaminas cargada correctamente");
 }
+
+iniciarAplicacion();
 ```
 
-También se puede exportar algo que ya esté definido:
+Con este pequeño cambio estamos preparando la estructura que utilizaremos más adelante.
 
-```js
-function generarMatriz(filas, columnas) {
-return [];
-}
+En esta función de inicio iremos añadiendo progresivamente:
 
-export { generarMatriz };
-```
+* la creación del tablero
+* los eventos del juego
+* la inicialización de los marcadores
+* la lógica de la partida
 
-Además, existe la exportación por defecto:
+## Qué hemos conseguido en este capítulo
 
-```js
-function iniciarJuego() {
-console.log("Juego iniciado");
-}
+En este apartado hemos preparado la base del proyecto del Buscaminas.
 
-export default iniciarJuego;
-```
+Ahora tenemos:
 
-La exportación por defecto permite importar el elemento sin llaves y con el nombre que queramos.
+* una estructura de carpetas organizada
+* un archivo HTML conectado con JavaScript
+* un archivo `main.js` que actúa como punto de entrada del programa
+* un proyecto que ya se ejecuta correctamente en el navegador
 
-## Importar en otro módulo
+Aunque el programa todavía no hace nada visible en la página, ya hemos preparado la infraestructura necesaria para empezar a construir el juego.
 
-Para utilizar funciones exportadas, se usa la palabra clave import.
-
-En main.js:
-
-```js
-import { crearTablero } from "./tablero.js";
-
-crearTablero(8, 8);
-```
-
-Aspectos importantes:
-
-* La ruta debe ser relativa (./ o ../).
-* Es obligatorio indicar la extensión .js.
-* El nombre debe coincidir exactamente con lo exportado, salvo en el caso de export default.
-
-Si se usa export default:
-
-```js
-import iniciarJuego from "./juego.js";
-
-iniciarJuego();
-```
-
-## Importar varios módulos
-
-En un proyecto real es habitual dividir la lógica en varios archivos. Por ejemplo:
-
-```js
-import { crearTablero } from "./tablero.js";
-import { colocarMinas } from "./minas.js";
-import { actualizarMarcador } from "./ui.js";
-```
-
-Cada módulo se encarga de una responsabilidad concreta. Esto facilita la lectura, el mantenimiento y la ampliación del código.
-
-Es importante que el archivo index.html solo cargue main.js. A partir de ahí, el resto de dependencias se gestionan mediante import.
-
-Condiciones para que funcionen los módulos
-
-Los módulos no funcionan correctamente si se abre el archivo HTML directamente con doble clic en algunos navegadores, debido a restricciones de seguridad (CORS).
-
-Por ello, es recomendable trabajar con:
-
-* Un servidor local (por ejemplo, Live Server en VS Code).
-* Un servidor integrado en el editor.
-* Un entorno de desarrollo que sirva los archivos por [http://localhost](http://localhost).
-
-## Cómo usar jQuery
-
-Aunque en la actualidad muchas funcionalidades de jQuery pueden hacerse con JavaScript moderno, es posible usar jQuery junto con módulos.
-
-### Opción 1: Cargar jQuery desde index.html
-
-En el archivo index.html:
-
-```html
-<head>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type="module" src="js/main.js"></script>
-</head>
-```
-
-En este caso:
-
-* jQuery se carga primero.
-* Se crea la variable global $.
-* Después se carga main.js como módulo.
-
-En main.js se puede usar directamente:
-
-```js
-$("#boton").on("click", () => {
-alert("Hola desde jQuery");
-});
-```
-
-Esta es la forma más sencilla si no se quiere complicar la configuración.
-
-### Opción 2: Importar jQuery como módulo
-
-Algunos CDN permiten importar jQuery como módulo ES. Por ejemplo:
-
-```js
-import $ from "[https://cdn.jsdelivr.net/npm/jquery@3.7.1/+esm](https://cdn.jsdelivr.net/npm/jquery@3.7.1/+esm)";
-
-$("#boton").on("click", () => {
-alert("Hola desde jQuery como módulo");
-});
-```
-
-En este caso:
-
-* jQuery se trata como cualquier otro módulo.
-* No se usa variable global.
-* El código queda más coherente con la arquitectura modular.
-
-Sin embargo, esta opción requiere que el navegador pueda acceder a esa URL y que el entorno soporte correctamente módulos externos.
-
-## Para el proyecto Buscaminas
-
-* Es perfectamente viable trabajar solo con JavaScript moderno.
-* El DOM actual ofrece métodos suficientes (querySelector, addEventListener, classList, etc.).
-* El uso de módulos ayuda a estructurar el código desde el principio.
-* jQuery puede explicarse como complemento, pero no es imprescindible.
-
-En un proyecto moderno:
-
-* index.html carga únicamente main.js como módulo.
-* main.js importa el resto de archivos.
-* Cada archivo exporta solo lo necesario.
-* Se evita el uso de variables globales.
-* El código queda organizado por responsabilidades.
-
-Esta estructura es la base sobre la que construiremos el juego del Buscaminas.
+En el siguiente capítulo comenzaremos a trabajar con **la sintaxis básica de JavaScript**, que nos permitirá empezar a escribir la lógica del juego.

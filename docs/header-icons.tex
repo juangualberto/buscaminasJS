@@ -1,0 +1,14 @@
+% Carga el paquete para gestionar fuentes
+\usepackage{fontspec}
+% Carga el paquete para definir qué hacer con caracteres específicos
+\usepackage{newunicodechar}
+
+% Define una nueva familia de fuentes específica para los emojis. 
+% Es necesario el Renderer=Harfbuzz para que XeLaTeX gestione bien las fuentes de color.
+% \newfontfamily{\emojifont}{Noto Color Emoji}[Renderer=Harfbuzz]
+\newfontfamily{\emojifont}{Noto Color Emoji}
+
+% Mapea los caracteres específicos que fallan en tu manual
+\newunicodechar{💣}{{\emojifont 💣}}
+\newunicodechar{🚩}{{\emojifont 🚩}}
+

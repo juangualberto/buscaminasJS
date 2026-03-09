@@ -1,11 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Juan Gualberto">
+  <title>Buscaminas - Solución modelo SMR</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+    integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+    integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/main.js"></script>
 </head>
+
 <body>
-    
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+
+        <span class="navbar-brand">Buscaminas</span>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBuscaminas">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarBuscaminas">
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_inicio" data-panel="panel_inicio">
+                Inicio
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_partida_facil" data-panel="panel_partida"
+                data-difficulty="easy">
+                Fácil
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_partida_media" data-panel="panel_partida"
+                data-difficulty="medium">
+                Normal
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_partida_dificil" data-panel="panel_partida"
+                data-difficulty="hard">
+                Difícil
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_puntuaciones" data-panel="panel_puntuaciones">
+                Puntuaciones
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_ayuda" data-panel="panel_ayuda">
+                Ayuda
+              </button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link btn btn-link text-white" id="menu_licencia" data-panel="panel_licencia">
+                Licencia
+              </button>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hud" aria-label="Panel de control">
+      <div class="counter-box">
+        <span class="counter-label">Minas</span>
+        <span id="minas" class="counter-value">0</span>
+      </div>
+
+      <button id="carita" class="face-button" type="button" title="Reiniciar partida">🙂</button>
+
+      <div class="counter-box">
+        <span class="counter-label">Tiempo</span>
+        <span id="reloj" class="counter-value">0</span>
+      </div>
+    </section>
+
+    <section id="panel_inicio" class="panel">
+      <h2>Inicio</h2>
+      <p>Bienvenido al buscaminas. Versión sencilla, moderna y sin jQuery.</p>
+      <p>Elige una dificultad en el menú superior para comenzar a jugar.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Tecnologías</h3>
+          <p>HTML, CSS y JavaScript moderno con módulos ES.</p>
+        </article>
+        <article class="card">
+          <h3>Objetivo</h3>
+          <p>Descubrir todas las casillas seguras sin pulsar una mina.</p>
+        </article>
+        <article class="card">
+          <h3>Controles</h3>
+          <p>Clic izquierdo para abrir. Clic derecho para poner o quitar bandera.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="panel_partida" class="panel hidden">
+      <h2 id="tituloPartida">Partida</h2>
+      <p id="estadoPartida" class="status-text">Selecciona una dificultad para empezar.</p>
+      <div class="board-wrapper">
+        <div id="tablero" class="board" role="grid" aria-label="Tablero del buscaminas"></div>
+      </div>
+    </section>
+
+    <section id="panel_puntuaciones" class="panel hidden">
+      <h2>Puntuaciones</h2>
+      <p>Se guardan en <code>localStorage</code> del navegador.</p>
+      <div class="score-actions">
+        <button id="borrarPuntuaciones" type="button">Borrar puntuaciones</button>
+      </div>
+      <div id="tablaPuntuaciones"></div>
+    </section>
+
+    <section id="panel_ayuda" class="panel hidden">
+      <h2>Cómo jugar</h2>
+      <ol>
+        <li>Abre casillas con clic izquierdo.</li>
+        <li>Marca sospechas con clic derecho.</li>
+        <li>Los números indican cuántas minas hay alrededor.</li>
+        <li>Ganas cuando descubres todas las casillas que no son minas.</li>
+      </ol>
+    </section>
+
+    <section id="panel_licencia" class="panel hidden">
+      <h2>Licencia</h2>
+      <p>Material creado como solución modelo educativa para el módulo de Servicios en Red / SMR.</p>
+      <p>Puedes reutilizarlo y adaptarlo en el aula citando la autoría correspondiente.</p>
+    </section>
+  </main>
+
+  <dialog id="dialogoPuntuacion">
+    <form id="formPuntuacion" method="dialog" class="score-form">
+      <h3>¡Has ganado!</h3>
+      <p>Introduce tu nombre para guardar la puntuación.</p>
+      <label for="nombreJugador">Nombre</label>
+      <input id="nombreJugador" name="nombre" type="text" maxlength="30" required>
+      <menu>
+        <button id="cancelarGuardar" value="cancel" type="button">Cancelar</button>
+        <button id="guardarPuntuacion" value="default" type="submit">Guardar</button>
+      </menu>
+    </form>
+  </dialog>
 </body>
+
 </html>
