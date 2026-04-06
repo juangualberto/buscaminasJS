@@ -1113,3 +1113,5 @@ En este capítulo hemos añadido una de las últimas piezas importantes del proy
 Con esto, el Buscaminas ya se acerca mucho al resultado final de la aplicación completa.
 
 En el siguiente capítulo podemos centrarnos en **pulir la interfaz y ajustar el flujo final de arranque y navegación** para que el comportamiento coincida todavía mejor con el proyecto definitivo.
+
+\pagebreak

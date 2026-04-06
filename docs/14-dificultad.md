@@ -625,3 +625,5 @@ Ahora el proyecto ya es capaz de:
 Con esto el Buscaminas se acerca mucho más a la estructura del proyecto final.
 
 En el siguiente capítulo añadiremos la **navegación entre paneles** de la aplicación, para que los botones del menú permitan mostrar Inicio, Partida, Puntuaciones, Ayuda y Licencia.
+
+\pagebreak

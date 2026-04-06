@@ -4,7 +4,7 @@ PANDO = pandoc
 # FLAGS = --lua-filter ./docs/emojis.lua --include-in-header=./docs/header-icons.tex --template docs/eisvogel --listings --number-sections --pdf-engine=xelatex
 # -V mainfont="DejaVu Serif" -V sansfont="DejaVu Sans" -V monofont="DejaVu Sans Mono"
 
-FLAGS = --include-in-header=./docs/header-icons.tex --template docs/eisvogel --listings --number-sections --pdf-engine=lualatex
+FLAGS = --include-in-header=./docs/header-icons.tex --template docs/eisvogel --listings --number-sections --pdf-engine=xelatex
 
 all:
 	$(PANDO) ./docs/0*.md ./docs/1*.md -o ./docs/Libro.pdf $(FLAGS)

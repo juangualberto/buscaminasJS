@@ -419,3 +419,5 @@ Ahora el proyecto ya es capaz de:
 Con esto ya tenemos el tablero lógico casi terminado.
 
 En el siguiente capítulo empezaremos a conectar esta lógica con la parte visual del juego, haciendo que al pulsar una celda se abra y muestre su contenido.
+
+\pagebreak

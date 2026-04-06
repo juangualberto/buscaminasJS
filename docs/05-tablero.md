@@ -26,7 +26,7 @@ Una matriz es simplemente un **array de arrays**.
 
 Por ejemplo, un tablero de 3x3 podría representarse así:
 
-```javascript id="matrix_example"
+```javascript
 [
   [0,0,1],
   [1,2,1],
@@ -50,7 +50,7 @@ Para mantener el código organizado vamos a crear un nuevo archivo dentro de la 
 
 Creamos el archivo:
 
-```id="board_file"
+```
 js/board.js
 ```
 
@@ -60,7 +60,7 @@ Este archivo se encargará de todo lo relacionado con el tablero del juego.
 
 Dentro de `board.js` vamos a escribir una función que cree el tablero.
 
-```javascript id="create_board"
+```javascript
 export function crearTablero(filas, columnas) {
 
   const tablero = document.querySelector("#tablero");
@@ -90,7 +90,7 @@ Vamos a analizar qué hace esta función.
 
 Primero seleccionamos el elemento donde se colocarán las celdas.
 
-```javascript id="select_board"
+```javascript
 const tablero = document.querySelector("#tablero");
 ```
 
@@ -100,7 +100,7 @@ Esto nos permite manipular el contenedor desde JavaScript.
 
 Antes de crear nuevas celdas eliminamos el contenido anterior.
 
-```javascript id="clear_board"
+```javascript
 tablero.innerHTML = "";
 ```
 
@@ -110,7 +110,7 @@ Esto será útil cuando el jugador reinicie la partida.
 
 Utilizamos dos bucles `for` para recorrer filas y columnas.
 
-```javascript id="loops_board"
+```javascript
 for (let fila = 0; fila < filas; fila++) {
   for (let columna = 0; columna < columnas; columna++) {
 ```
@@ -121,13 +121,13 @@ Este tipo de bucle anidado es muy común cuando trabajamos con matrices.
 
 Dentro del bucle creamos una celda nueva.
 
-```javascript id="create_cell"
+```javascript
 const celda = document.createElement("div");
 ```
 
 Después le añadimos una clase CSS.
 
-```javascript id="cell_class"
+```javascript
 celda.classList.add("celda");
 ```
 
@@ -137,7 +137,7 @@ Esta clase permitirá aplicar estilos visuales.
 
 Finalmente añadimos la celda al contenedor.
 
-```javascript id="append_cell"
+```javascript
 tablero.appendChild(celda);
 ```
 
@@ -149,13 +149,13 @@ Ahora debemos utilizar esta función desde el archivo principal del proyecto.
 
 Abrimos `main.js` y añadimos la importación del módulo.
 
-```javascript id="import_board"
+```javascript
 import { crearTablero } from "./board.js";
 ```
 
 Después modificamos la función de inicio de la aplicación.
 
-```javascript id="start_app"
+```javascript
 function iniciarAplicacion() {
 
   crearTablero(8, 8);
@@ -186,7 +186,7 @@ Para ello podemos añadir información a cada celda utilizando atributos `data`.
 
 Modificamos ligeramente el código:
 
-```javascript id="cell_dataset"
+```javascript
 celda.dataset.fila = fila;
 celda.dataset.columna = columna;
 ```
@@ -199,7 +199,7 @@ Más adelante podremos leer estos valores para saber qué celda ha pulsado el ju
 
 El archivo `board.js` debería quedar así:
 
-```javascript id="board_full"
+```javascript
 export function crearTablero(filas, columnas) {
 
   const tablero = document.querySelector("#tablero");
@@ -238,3 +238,5 @@ En este capítulo hemos construido la primera parte real del juego:
 Ahora el proyecto ya es capaz de **crear el tablero del Buscaminas automáticamente**.
 
 En el siguiente capítulo empezaremos a añadir **interacción al tablero**, detectando cuándo el jugador hace clic en una celda.
+
+\pagebreak

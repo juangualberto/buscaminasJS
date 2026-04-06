@@ -1,6 +1,6 @@
 # Introducción a la programación con JavaScript
 
-El propósito de este manual es la 
+El propósito de este manual es la realización un Buscaminas utilizando JavaScript moderno con módulos. 
 
 ## Introducción
 
@@ -95,11 +95,11 @@ Por ejemplo, si tenemos este HTML:
 
 El navegador lo interpreta como una estructura de objetos:
 
-```
+```text
 Document
- └── body
-      ├── h1
-      └── button
+└── body
+    ├── h1
+    └── button
 ```
 
 JavaScript puede acceder a esos elementos y modificarlos.
@@ -221,3 +221,5 @@ Después de este capítulo ya somos capaces de:
 Estos conceptos serán la base para comenzar a construir el juego del **Buscaminas** paso a paso.
 
 En el siguiente capítulo aprenderemos cómo incluir JavaScript correctamente utilizando **módulos**, que es la forma moderna de organizar proyectos JavaScript.
+
+\pagebreak

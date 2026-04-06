@@ -1,4 +1,4 @@
-## El DOM: cómo interactuar con el HTML desde JavaScript
+# El DOM: cómo interactuar con el HTML desde JavaScript
 
 En los capítulos anteriores hemos preparado la estructura del proyecto y hemos visto los conceptos básicos del lenguaje JavaScript. Ahora vamos a aprender cómo **JavaScript puede interactuar con los elementos de una página web**.
 
@@ -31,11 +31,11 @@ Por ejemplo, si tenemos el siguiente código HTML:
 
 El navegador lo representa internamente así:
 
-```
+```text
 Document
- └── body
-      ├── h1
-      └── button
+└── body
+   ├── h1
+   └── button
 ```
 
 Cada uno de estos elementos se convierte en un **objeto JavaScript** que podemos manipular desde nuestro código.
@@ -259,3 +259,5 @@ En este capítulo hemos aprendido:
 Estos conceptos nos permitirán empezar a construir partes reales del juego.
 
 En el siguiente capítulo comenzaremos a generar **el tablero del Buscaminas dinámicamente desde JavaScript**, creando las primeras celdas del juego.
+
+\pagebreak

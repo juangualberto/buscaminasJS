@@ -557,3 +557,4 @@ Con esto, el juego ya tiene una estructura jugable completa.
 
 En el siguiente capítulo añadiremos dos elementos muy importantes de la interfaz: **el contador de tiempo y el reinicio de partida**, para que el juego se parezca todavía más al proyecto final.
 
+\pagebreak

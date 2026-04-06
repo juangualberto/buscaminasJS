@@ -464,3 +464,5 @@ Ahora el proyecto ya es capaz de:
 El juego ya empieza a parecerse a un Buscaminas real.
 
 En el siguiente capítulo mejoraremos el comportamiento de las celdas vacías, haciendo que cuando el jugador abra una celda con valor `0` se descubran automáticamente las celdas vecinas.
+
+\pagebreak

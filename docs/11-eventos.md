@@ -506,3 +506,5 @@ En este capítulo hemos añadido otra de las mecánicas fundamentales del Buscam
 Con esto el juego ya ofrece una experiencia mucho más cercana a la del Buscaminas clásico.
 
 En el siguiente capítulo implementaremos la lógica de **derrota y victoria**, de forma que el juego sepa cuándo el jugador pisa una mina y cuándo ha conseguido completar correctamente la partida.
+
+\pagebreak
