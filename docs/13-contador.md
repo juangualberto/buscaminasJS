@@ -586,3 +586,5 @@ Ahora el proyecto ya es capaz de:
 Con esto el Buscaminas ya se parece mucho más al proyecto final.
 
 En el siguiente capítulo incorporaremos **el contador de minas y la selección de dificultad**, para que la aplicación permita cambiar entre distintos tamaños de tablero y distintas cantidades de minas.
+
+\pagebreak

@@ -27,7 +27,7 @@ En JavaScript moderno utilizamos principalmente dos palabras clave para declarar
 
 La palabra clave `let` se utiliza cuando el valor de la variable puede cambiar.
 
-```javascript id="var1"
+```javascript
 let minas = 10;
 let tiempo = 0;
 ```
@@ -39,7 +39,7 @@ En este ejemplo:
 
 Posteriormente podemos modificar su valor:
 
-```javascript id="var2"
+```javascript
 tiempo = tiempo + 1;
 ```
 
@@ -47,7 +47,7 @@ tiempo = tiempo + 1;
 
 La palabra clave `const` se utiliza cuando el valor no va a cambiar.
 
-```javascript id="var3"
+```javascript
 const nombreJuego = "Buscaminas";
 ```
 
@@ -71,7 +71,7 @@ Los más utilizados en nuestro proyecto serán:
 
 ### Números
 
-```javascript id="num1"
+```javascript
 let filas = 8;
 let columnas = 8;
 let minas = 10;
@@ -83,13 +83,13 @@ Estos valores nos servirán más adelante para definir el tamaño del tablero.
 
 Los textos se escriben entre comillas.
 
-```javascript id="str1"
+```javascript
 let mensaje = "Juego iniciado";
 ```
 
 Podemos mostrarlos en la consola:
 
-```javascript id="str2"
+```javascript
 console.log(mensaje);
 ```
 
@@ -100,7 +100,7 @@ Un booleano solo puede tener dos valores:
 * `true`
 * `false`
 
-```javascript id="bool1"
+```javascript
 let partidaTerminada = false;
 ```
 
@@ -114,13 +114,13 @@ Se utilizan mucho cuando necesitamos trabajar con colecciones de datos.
 
 Por ejemplo:
 
-```javascript id="arr1"
+```javascript
 let numeros = [1,2,3,4,5];
 ```
 
 Podemos acceder a cada elemento utilizando su posición.
 
-```javascript id="arr2"
+```javascript
 console.log(numeros[0]);
 ```
 
@@ -134,7 +134,7 @@ Un objeto permite agrupar información relacionada.
 
 Por ejemplo:
 
-```javascript id="obj1"
+```javascript
 const jugador = {
   nombre: "Ana",
   puntuacion: 1200
@@ -143,7 +143,7 @@ const jugador = {
 
 Podemos acceder a sus propiedades así:
 
-```javascript id="obj2"
+```javascript
 console.log(jugador.nombre);
 ```
 
@@ -155,7 +155,7 @@ Los condicionales permiten ejecutar código solo cuando se cumple una condición
 
 La estructura más utilizada es `if`.
 
-```javascript id="cond1"
+```javascript
 let minas = 10;
 
 if (minas > 0) {
@@ -165,7 +165,7 @@ if (minas > 0) {
 
 También podemos añadir una alternativa con `else`.
 
-```javascript id="cond2"
+```javascript
 if (minas > 0) {
   console.log("La partida continúa");
 } else {
@@ -185,7 +185,7 @@ Los bucles permiten repetir una operación varias veces.
 
 Uno de los más utilizados es el bucle `for`.
 
-```javascript id="loop1"
+```javascript
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
@@ -193,7 +193,7 @@ for (let i = 0; i < 5; i++) {
 
 Este bucle imprimirá en la consola:
 
-```id="loop2"
+```
 0
 1
 2
@@ -213,7 +213,7 @@ Una función es un bloque de código que realiza una tarea concreta.
 
 Podemos definir una función así:
 
-```javascript id="func1"
+```javascript
 function saludar() {
   console.log("Hola");
 }
@@ -221,13 +221,13 @@ function saludar() {
 
 Para ejecutarla simplemente la llamamos:
 
-```javascript id="func2"
+```javascript
 saludar();
 ```
 
 Las funciones también pueden recibir parámetros.
 
-```javascript id="func3"
+```javascript
 function sumar(a, b) {
   return a + b;
 }
@@ -235,7 +235,7 @@ function sumar(a, b) {
 
 Y utilizarse de esta forma:
 
-```javascript id="func4"
+```javascript
 let resultado = sumar(2,3);
 console.log(resultado);
 ```
@@ -253,7 +253,7 @@ JavaScript moderno permite escribir funciones de forma más compacta utilizando 
 
 Por ejemplo:
 
-```javascript id="arrow1"
+```javascript
 const mostrarMensaje = () => {
   console.log("Hola desde una función flecha");
 };
@@ -267,7 +267,7 @@ Podemos probar algunos de estos conceptos modificando temporalmente nuestro arch
 
 Por ejemplo:
 
-```javascript id="test1"
+```javascript
 function iniciarAplicacion() {
 
   const filas = 8;
@@ -282,7 +282,7 @@ iniciarAplicacion();
 
 Si abrimos la consola del navegador veremos:
 
-```id="test2"
+```
 Tablero: 8 x 8
 ```
 
@@ -303,3 +303,5 @@ En este capítulo hemos visto los elementos básicos del lenguaje JavaScript:
 Estos conceptos serán suficientes para comenzar a programar la lógica del juego.
 
 En el siguiente capítulo empezaremos a trabajar con el **DOM**, que nos permitirá interactuar con los elementos HTML y comenzar a construir el tablero del Buscaminas dinámicamente desde JavaScript.
+
+\pagebreak

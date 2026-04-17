@@ -1,4 +1,4 @@
-## Detener la partida al salir del panel de juego
+# Detener la partida al salir del panel de juego
 
 En el capítulo anterior hemos conseguido que la aplicación navegue entre distintos paneles: Inicio, Partida, Puntuaciones, Ayuda y Licencia. Sin embargo, todavía queda un comportamiento importante por mejorar para que el resultado se parezca al proyecto final.
 
@@ -610,3 +610,5 @@ Ahora el proyecto ya es capaz de:
 Con esta mejora, la aplicación se comporta mucho mejor y se acerca todavía más al proyecto final.
 
 En el siguiente capítulo añadiremos la **gestión de puntuaciones con localStorage**, de forma que el juego pueda guardar los resultados del usuario y mostrarlos después en el panel de puntuaciones.
+
+\pagebreak

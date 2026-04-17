@@ -1,4 +1,4 @@
-## Navegación entre paneles de la aplicación
+# Navegación entre paneles de la aplicación
 
 Hasta ahora nos hemos centrado casi exclusivamente en la lógica interna del juego: creación del tablero, minas, números, banderas, temporizador, reinicio y dificultades. Sin embargo, el proyecto final no es solo una pantalla con un tablero. También incluye varios apartados accesibles desde el menú superior.
 
@@ -630,3 +630,5 @@ Ahora el proyecto ya es capaz de:
 Con esto, el Buscaminas ya deja de ser solo un tablero y se convierte en una aplicación web con varias secciones.
 
 En el siguiente capítulo refinaremos esta navegación para que, al salir de la partida, **el temporizador se detenga y el estado del juego se reinicie correctamente**, igual que ocurre en el proyecto final.
+
+\pagebreak

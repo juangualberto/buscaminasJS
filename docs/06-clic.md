@@ -1,4 +1,4 @@
-## Detectar clics en las celdas del tablero
+# Detectar clics en las celdas del tablero
 
 En el capítulo anterior hemos conseguido generar el tablero del juego desde JavaScript. Cada celda del tablero se crea dinámicamente y se añade al contenedor del tablero en el DOM.
 
@@ -32,7 +32,7 @@ JavaScript puede **escuchar estos eventos** y ejecutar código cuando ocurren.
 
 Para ello utilizamos el método:
 
-```javascript id="ev_listener"
+```javascript
 addEventListener()
 ```
 
@@ -44,7 +44,7 @@ Podemos añadir un evento a cada celda justo después de crearla.
 
 Volvemos al archivo `board.js` y añadimos el siguiente código dentro del bucle donde se crean las celdas.
 
-```javascript id="ev_cell"
+```javascript
 celda.addEventListener("click", () => {
 
   console.log("Celda pulsada");
@@ -60,7 +60,7 @@ Para poder construir la lógica del juego necesitamos saber **qué celda concret
 
 En el capítulo anterior guardamos la posición de cada celda utilizando `dataset`.
 
-```javascript id="dataset_cell"
+```javascript
 celda.dataset.fila = fila;
 celda.dataset.columna = columna;
 ```
@@ -69,7 +69,7 @@ Esto significa que cada celda contiene información sobre su posición dentro de
 
 Podemos acceder a estos valores dentro del evento.
 
-```javascript id="dataset_read"
+```javascript
 celda.addEventListener("click", () => {
 
   const fila = celda.dataset.fila;
@@ -88,7 +88,7 @@ Los valores almacenados en `dataset` se guardan como texto.
 
 Si queremos utilizarlos como números es recomendable convertirlos.
 
-```javascript id="dataset_number"
+```javascript
 const fila = Number(celda.dataset.fila);
 const columna = Number(celda.dataset.columna);
 ```
@@ -101,7 +101,7 @@ Para mantener el código organizado es mejor que el evento llame a una función 
 
 En lugar de escribir toda la lógica dentro del `addEventListener`, podemos hacer lo siguiente:
 
-```javascript id="event_function"
+```javascript
 celda.addEventListener("click", () => {
 
   const fila = Number(celda.dataset.fila);
@@ -114,7 +114,7 @@ celda.addEventListener("click", () => {
 
 Ahora creamos la función `manejarClickCelda`.
 
-```javascript id="handle_cell"
+```javascript
 function manejarClickCelda(fila, columna) {
 
   console.log("Celda pulsada:", fila, columna);
@@ -132,7 +132,7 @@ Más adelante esta función se encargará de:
 
 El archivo `board.js` ahora debería tener esta estructura:
 
-```javascript id="board_events"
+```javascript
 export function crearTablero(filas, columnas) {
 
   const tablero = document.querySelector("#tablero");
@@ -199,3 +199,5 @@ Ahora el proyecto puede:
 Este es un paso fundamental para que el jugador pueda interactuar con el juego.
 
 En el siguiente capítulo comenzaremos a implementar **la lógica interna del tablero**, creando la matriz que almacenará la posición de las minas.
+
+\pagebreak

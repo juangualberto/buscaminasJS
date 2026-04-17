@@ -421,3 +421,5 @@ Ahora el proyecto ya dispone de:
 A partir de este momento el programa ya no solo muestra un tablero vacío, sino que también **conoce internamente dónde están las minas**.
 
 En el siguiente capítulo calcularemos los números de cada celda, es decir, cuántas minas hay alrededor de cada posición del tablero.
+
+\pagebreak

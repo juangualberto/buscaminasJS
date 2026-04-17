@@ -1,4 +1,4 @@
-## Cómo incluir JavaScript correctamente en nuestro proyecto
+# Cómo incluir JavaScript correctamente 
 
 En el capítulo anterior hemos visto qué es JavaScript y cómo puede interactuar con una página web. Ahora vamos a dar el siguiente paso: **preparar la estructura real del proyecto que utilizaremos para construir el juego del Buscaminas**.
 
@@ -20,7 +20,8 @@ buscaminasJS
 
 Dentro de esta carpeta crearemos la siguiente estructura:
 
-```
+```{=latex}
+\begin{verbatim}
 buscaminasJS
 │
 ├─ index.html
@@ -32,6 +33,7 @@ buscaminasJS
     ├─ main.js
     ├─ board.js
     └─ scores.js
+\end{verbatim}
 ```
 
 Cada uno de estos archivos tendrá una función concreta dentro del proyecto:
@@ -146,3 +148,5 @@ Ahora tenemos:
 Aunque el programa todavía no hace nada visible en la página, ya hemos preparado la infraestructura necesaria para empezar a construir el juego.
 
 En el siguiente capítulo comenzaremos a trabajar con **la sintaxis básica de JavaScript**, que nos permitirá empezar a escribir la lógica del juego.
+
+\pagebreak

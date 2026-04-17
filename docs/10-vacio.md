@@ -344,3 +344,6 @@ En este capítulo hemos implementado una de las mecánicas más importantes del 
 Con esto, el juego ya empieza a comportarse de una forma mucho más real.
 
 En el siguiente capítulo vamos a añadir la otra gran mecánica del Buscaminas: **colocar y quitar banderas con el clic derecho del ratón**.
+
+\pagebreak
+
